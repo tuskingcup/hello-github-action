@@ -35,15 +35,15 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: Extract metadata (tags, labels) for Docker
-    #   id: meta
-    #   uses: docker/metadata-action@v3
-    #   with:
-    #     images: ghcr.io/${{ github.actor }}/subject-api
-    #     tags: |
-    #       type=sha
-    #     flavor: |
-    #       latest=${{ github.event_name == 'push' }}
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v3
+      with:
+        images: ghcr.io/${{ github.actor }}/subject-api
+        tags: |
+          type=sha
+        flavor: |
+          latest=${{ github.event_name == 'push' }}
 
     # - name: Build and push
     #   uses: docker/build-push-action@v2
