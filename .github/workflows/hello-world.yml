@@ -1,5 +1,8 @@
 name: hello-world
-on: [push]
+push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
 jobs: 
   print-hello-world: 
     runs-on: ubuntu-20.04
@@ -31,20 +34,20 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v3
-      with:
-        images: ghcr.io/${{ github.actor }}/subject-api
-        tags: |
-          type=sha
-        flavor: |
-          latest=${{ github.event_name == 'push' }}
+    # - name: Extract metadata (tags, labels) for Docker
+    #   id: meta
+    #   uses: docker/metadata-action@v3
+    #   with:
+    #     images: ghcr.io/${{ github.actor }}/subject-api
+    #     tags: |
+    #       type=sha
+    #     flavor: |
+    #       latest=${{ github.event_name == 'push' }}
 
-    - name: Build and push
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: ${{ steps.meta.outputs.tags }}
+    # - name: Build and push
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     file: ./Dockerfile
+    #     push: true
+    #     tags: ${{ steps.meta.outputs.tags }}
