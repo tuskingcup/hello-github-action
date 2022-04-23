@@ -1,9 +1,11 @@
 name: discord-noti
 on:
   push:
-    branches: [ dev,main ]
+    branches:
+      - dev
   pull_request:
-    branches: [ dev ]
+    branches:
+      - main
 jobs:
   discord-noti:
     runs-on: ubuntu-20.04
