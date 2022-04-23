@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "http-server": "^14.1.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {
