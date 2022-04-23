@@ -39,7 +39,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v3
       with:
-        images: ghcr.io/${{ github.actor }}/subject-api
+        images: ghcr.io/${{ github.actor }}/web-page
         tags: |
           type=sha
         flavor: |
